@@ -1,0 +1,443 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ZTM IBM Watson Integration",
+    "description": "",
+    "version": "latest"
+  },
+  "servers": [
+    {
+      "url": "https://ibmmspdev.service-now.com"
+    }
+  ],
+  "paths": {
+    "/api/x_ssdsa_kx/ibm_watson/requests/new-device": {
+      "post": {
+        "description": "",
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "item_id": {
+                    "type": "string"
+                  },
+                  "requested_for": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "msg": {
+                          "type": "string",
+                          "example": "Your request was successfully submitted"
+                        },
+                        "ritm": {
+                          "type": "string",
+                          "example": "RITM0010116"
+                        },
+                        "ritm_id": {
+                          "type": "string",
+                          "example": "e651f8b09785319087463f7c1253afc8"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/x_ssdsa_kx/ibm_watson/requests/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "number": {
+                          "type": "string",
+                          "example": "RITM0010113"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Samsung Galaxy A52"
+                        },
+                        "requested_for": {
+                          "type": "object",
+                          "properties": {
+                            "name": {
+                              "type": "string",
+                              "example": "ZTM User"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "ztm.user1@samsung.com"
+                            },
+                            "id": {
+                              "type": "string",
+                              "example": "0398512097fc315087463f7c1253af56"
+                            }
+                          }
+                        },
+                        "notes": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "example": [
+                            "2023-08-30 08:12:37 - Bogdan Felinskyi (Additional comments)\\ntest"
+                          ]
+                        },
+                        "updated_on": {
+                          "type": "string",
+                          "example": "2023-08-30 15:12:37"
+                        },
+                        "state": {
+                          "type": "string",
+                          "example": "Work in Progress"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "8aae0ef197fc755087463f7c1253afeb"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/x_ssdsa_kx/ibm_watson/users/{id}": {
+      "get": {
+        "description": "**Accepts**: `user name, user email, user sys_id`",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "example": "ZTM User"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "ztm.user1@samsung.com"
+                        },
+                        "company": {
+                          "type": "string",
+                          "example": "Samsung"
+                        },
+                        "location": {
+                          "type": "string",
+                          "example": "324 South State Street Salt Lake CityUT"
+                        },
+                        "user_name": {
+                          "type": "string",
+                          "example": "ztm.user1"
+                        },
+                        "id": {
+                          "type": "string",
+                          "example": "0398512097fc315087463f7c1253af56"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/x_ssdsa_kx/ibm_watson/users/{id}/catalog-items": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "example": "Samsung Galaxy S21 5G 8/256GB Phantom White (SM-G991N)"
+                              },
+                              "price": {
+                                "type": "string",
+                                "example": "$662.13"
+                              },
+                              "id": {
+                                "type": "string",
+                                "example": "079f02b4879415100254bae6dabb3508"
+                              }
+                            }
+                          }
+                        },
+                        "totalCount": {
+                          "type": "string",
+                          "example": 7
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/x_ssdsa_kx/ibm_watson/users/{id}/requests": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "number": {
+                                "type": "string",
+                                "example": "RITM0010116"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "Samsung Galaxy A52"
+                              },
+                              "updated_on": {
+                                "type": "string",
+                                "example": "2023-08-31 12:50:24"
+                              },
+                              "state": {
+                                "type": "string",
+                                "example": "Open"
+                              },
+                              "id": {
+                                "type": "string",
+                                "example": "e651f8b09785319087463f7c1253afc8"
+                              }
+                            }
+                          }
+                        },
+                        "totalCount": {
+                          "type": "string",
+                          "example": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    },
+    "/api/x_ssdsa_kx/ibm_watson/users/{id}/devices": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {}
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "data": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string",
+                                "example": "Samsung SM-A525F"
+                              },
+                              "assigned_to": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": "string",
+                                    "example": "ZTM User"
+                                  },
+                                  "email": {
+                                    "type": "string",
+                                    "example": "ztm.user1@samsung.com"
+                                  },
+                                  "id": {
+                                    "type": "string",
+                                    "example": "0398512097fc315087463f7c1253af56"
+                                  }
+                                }
+                              },
+                              "state": {
+                                "type": "string",
+                                "example": "In use"
+                              },
+                              "serial_number": {
+                                "type": "string",
+                                "example": "RZ8T11DX2KF"
+                              },
+                              "install_date": {
+                                "type": "string",
+                                "example": "2023-08-01 13:23:07"
+                              },
+                              "id": {
+                                "type": "string",
+                                "example": "26e715ec97bc315087463f7c1253af55"
+                              }
+                            }
+                          }
+                        },
+                        "totalCount": {
+                          "type": "string",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basicAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
