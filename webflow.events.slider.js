@@ -1,6 +1,6 @@
 var Webflow = Webflow || [];
 Webflow.push(function () {
-  var namespace = '.w-slider';
+  var namespace = '.carousel-slider-white.w-slide';
 
   function slideChangeEvent(evt) {
     var slider;
